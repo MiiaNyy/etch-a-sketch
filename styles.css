@@ -1,0 +1,22 @@
+
+.content {
+    text-align: center;
+}
+
+.sketch-board {
+    border-style: solid;
+    border-color: black;
+    border-width: 10px;
+    width: 490px;
+    height: 490px;
+    margin: 20px auto;   
+    display: grid;
+
+
+}
+
+.pixel {
+    border: 1px solid gray;
+    min-width: 10px;
+    min-height: 10px;
+}
