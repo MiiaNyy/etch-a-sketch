@@ -14,21 +14,24 @@
             <h5></h5>
         </header>
 
-        <form>
-            <label for="rainbow">Rainbow</label>
-            <input type="radio" id="rainbow">
-            <label for="black">Black</label>
-            <input type="radio" id="black">
-            <label for="eraser">Eraser</label>
-            <input type="radio" id="eraser">
-            <button class="erase-button">Erase all</button>
-        </form>
+        <button class="color-button" data-color="black">Black</button>
+        <button class="color-button" data-color="red">Random Red</button>
+        <button class="color-button" data-color="blue">Random Blue</button>
+        <button class="eraser-button" data-color="eraser">Eraser</button>
+        
+        <label class="color-button" for="input-color">Pick:</label>
+        <input type="color" value="#1164e8" name="input-color" id="input-color">
+        
 
         <div id="container" class="sketch-board">
             <!--This is the drawing board-->
         </div>  
 
-
+        <div class="slidecontainer">
+            <input type="range" min="5" max="100" value="16" class="slider" id="my-range">
+            <label class="range-number" for="">16 pixels</label>
+        </div>
+        <button class="new-grid-button">New Grid</button>
 
     </div>
 
