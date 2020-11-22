@@ -13,26 +13,26 @@
             <h1>Etch-A-Sketch</h1>
             <h5></h5>
         </header>
+        <form >
+            <input type="button"  class="color-button"value="Black" data-color="black">
+            <input type="button" class="color-button" value="Random Red" data-color="red">
+            <input type="button" class="color-button" value="Random Blue" data-color="blue">
+            <input type="button" class="eraser-button" value="Eraser" >
 
-        <button class="color-button" data-color="black">Black</button>
-        <button class="color-button" data-color="red">Random Red</button>
-        <button class="color-button" data-color="blue">Random Blue</button>
-        <button class="eraser-button" data-color="eraser">Eraser</button>
-        
-        <label class="color-button" for="input-color">Pick:</label>
-        <input type="color" value="#1164e8" name="input-color" id="input-color">
-        
+            <label  for="input-color">Pick:</label>
+            <input type="color" class="color-button" value="#1164e8" data-color="random" name="input-color" id="input-color">
+        </form>        
 
         <div id="container" class="sketch-board">
             <!--This is the drawing board-->
         </div>  
 
-        <div class="slidecontainer">
+        <form class="slidecontainer">
             <input type="range" min="5" max="100" value="16" class="slider" id="my-range">
-            <label class="range-number" for="">16 pixels</label>
-        </div>
-        <button class="new-grid-button">New Grid</button>
-
+            <label class="range-number">16 pixels</label>
+        
+            <button class="new-grid-button">New Grid</button>
+        </form>
     </div>
 
     <script src="script.js"></script>

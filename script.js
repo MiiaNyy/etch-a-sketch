@@ -4,12 +4,12 @@ const eraseButton = document.querySelector(".eraser-button");
 const colorButtons = document.querySelectorAll(".color-button");
 const newGridButton = document.querySelector(".new-grid-button");
 
-
-
-
+const displaySize = document.querySelector('.range-number');
+const sizeSlider = document.querySelector(".slider");
 
 let color = '#000000';
-let gridPixelSize = 16;
+
+testi();
 
 function createGrid(pixelSize) {
     grid(pixelSize)
@@ -17,6 +17,8 @@ function createGrid(pixelSize) {
     let gridPixels = sketchBoard.querySelectorAll('div');
 
     gridPixels.forEach(gridPixel => gridPixel.addEventListener('mouseover', pixelColor));
+    
+
 }
 
 function grid(pixelSize) {
@@ -55,15 +57,9 @@ function eraseAllColor() {
     gridPixels.forEach(gridPixel => gridPixel.style.backgroundColor = '#ffffff');
 }
 
-function playersPickedColor(c) {
-    
-console.log(c)
+function playersPickedColor(val) {
+    color = val;
 }
-
-let theInput = document.getElementById("input-color");
-
-theInput.addEventListener('onchange', playersPickedColor(this))
-
 
 function colorPicker(event) {
     switch(event.target.dataset.color) {
@@ -72,6 +68,9 @@ function colorPicker(event) {
             break;
         case 'blue':
             drawBlueShade();
+            break;
+        case 'random':
+            playersPickedColor(this.value)
             break;            
         case 'black':
             color = 'black';
@@ -79,26 +78,42 @@ function colorPicker(event) {
     }
 }
 
+function pixelSizeDisplay() {
 
 
-
-function pixelSize() {
-    const displaySize = document.querySelector('.range-number');
-    const sizeSlider = document.getElementById("my-range");
-    sizeSlider.value = 16;
     displaySize.textContent = sizeSlider.value + ' pixels';
     sizeSlider.addEventListener('mousemove', function() {
         displaySize.textContent = sizeSlider.value + ' pixels';
     })
 }
 
+/*function changeGridSize() {
+    gridPixelSize = sizeSlider.value;
+    console.log(gridPixelSize)
+}*/
 
-pixelSize();
+
+pixelSizeDisplay();
 
 
-createGrid(gridPixelSize);
 
 colorButtons.forEach(colorButton => colorButton.addEventListener('click', colorPicker));
 eraseButton.addEventListener('click', eraseAllColor);
 
+let number = 16;
+createGrid(number)
+
+function testi() {
+    
+
+    sizeSlider.addEventListener("mouseup", function() {
+    number = parseInt(sizeSlider.value);
+    console.log(number)
+    
+    eraseAllColor()
+    createGrid(number)
+});
+
+
+}
 
