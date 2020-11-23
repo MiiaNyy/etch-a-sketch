@@ -86,7 +86,7 @@ function colorPicker(event) {
     }
 }
 
-function pixelSizeDisplay() {
+function pixelSizeText() {
     displaySize.textContent = sizeSlider.value + ' pixels';
 
     sizeSlider.addEventListener('mousemove', function() {
@@ -111,7 +111,7 @@ function clearGrid() {
 
 
 
-pixelSizeDisplay();
+pixelSizeText();
 createGrid(gridPixelSize)
 
 
