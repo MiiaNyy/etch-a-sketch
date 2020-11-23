@@ -8,30 +8,31 @@ const displaySize = document.querySelector('.range-number');
 const sizeSlider = document.querySelector(".slider");
 
 let color = '#000000';
+let gridPixelSize = 16;
 
-testi();
 
 function createGrid(pixelSize) {
-    grid(pixelSize)
+    clearGrid();
 
-    let gridPixels = sketchBoard.querySelectorAll('div');
+    console.log("Create grid " + pixelSize);
 
-    gridPixels.forEach(gridPixel => gridPixel.addEventListener('mouseover', pixelColor));
-    
-
-}
-
-function grid(pixelSize) {
     let gridArea = pixelSize * pixelSize;
 
     for(let i = 0; i < gridArea; i++) {
         let gridCell = document.createElement('div');
         gridCell.classList.add("pixel")
-        sketchBoard.style.gridTemplateColumns = `repeat(${pixelSize}, auto)`;
-        sketchBoard.style.gridTemplateRows = `repeat(${pixelSize}, auto)`;
-        sketchBoard.insertAdjacentElement('beforeend', gridCell);
+
+        sketchBoard.style.gridTemplateColumns = `repeat(${pixelSize}, 1fr)`;
+        sketchBoard.style.gridTemplateRows = `repeat(${pixelSize}, 1fr)`;
+        sketchBoard.appendChild(gridCell);
     }
+    let gridPixels = sketchBoard.querySelectorAll('div');
+
+    gridPixels.forEach(gridPixel => gridPixel.addEventListener('mouseover', pixelColor));
+
+
 }
+
 
 function pixelColor() {
     this.style.backgroundColor = color;
@@ -79,41 +80,43 @@ function colorPicker(event) {
 }
 
 function pixelSizeDisplay() {
-
-
     displaySize.textContent = sizeSlider.value + ' pixels';
+
     sizeSlider.addEventListener('mousemove', function() {
+        if (sizeSlider.value == gridPixelSize) {
+            return;
+        }
         displaySize.textContent = sizeSlider.value + ' pixels';
+        gridPixelSize = sizeSlider.value;
+        createGrid(gridPixelSize);
     })
+    
 }
 
-/*function changeGridSize() {
-    gridPixelSize = sizeSlider.value;
-    console.log(gridPixelSize)
-}*/
+
+function clearGrid() {
+    console.log("Clearing grid (" + sketchBoard.childElementCount + " elements)");
+
+    while (sketchBoard.firstChild) {
+        sketchBoard.removeChild(sketchBoard.lastChild);
+    }
+}
+
 
 
 pixelSizeDisplay();
-
+createGrid(gridPixelSize)
 
 
 colorButtons.forEach(colorButton => colorButton.addEventListener('click', colorPicker));
 eraseButton.addEventListener('click', eraseAllColor);
 
-let number = 16;
-createGrid(number)
-
-function testi() {
-    
-
-    sizeSlider.addEventListener("mouseup", function() {
-    number = parseInt(sizeSlider.value);
-    console.log(number)
-    
-    eraseAllColor()
-    createGrid(number)
-});
 
 
-}
+
+
+
+
+
+
 
