@@ -8,8 +8,12 @@ header {
     box-shadow: -9px 8px #33332d;
     width: 50%;
     margin: 50px auto;
-    background-color: #ffffff;
+    background-color: #ffffff;   
 
+}
+
+h1 {
+    text-shadow: 5px 5px rgb(230, 228, 228);
 }
 
 .content {
@@ -51,6 +55,10 @@ header {
 	text-decoration:none;
     text-shadow:0px 1px 0px #1f1d20;
     box-shadow: -3px 5px #33332d;
+}
+
+.label {
+    text-shadow: 5px 5px rgb(246, 234, 234)
 }
 
 .sketch-board {
@@ -101,6 +109,7 @@ header {
 
 .range-number {
     margin-left: 120px;
+    text-shadow: 5px 5px rgb(212, 205, 205)
 }
 
 .pixel {
@@ -123,18 +132,24 @@ header {
     color: #ffffff;
 }
 
+#white:hover {
+    background-color: #fcbf49;
+    color: #000000; 
+}
+
 #erase:hover {
-    background-color: #71ff12;
-    color: #000000;
+    background-color: #49fca3;
+    color: #000000; 
 }
 
 #input-color {
     padding-right: 35px;
     padding-left: 40px;
+    width: 60px;
 }
 
 #input-color:hover {
-    background-color: #ff66d8;
+    background-color: #f396dc;
     color: #000000;
-}
+
 }

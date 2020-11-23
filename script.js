@@ -52,6 +52,10 @@ function drawBlueShade() {
     color = `rgb(${red}, ${green}, ${blue})`;
 }
 
+function drawWhite() {
+    color = '#FFFFFF';
+}
+
 //For erase button
 function eraseAllColor() {
     let gridPixels = sketchBoard.querySelectorAll('div');
@@ -72,6 +76,9 @@ function colorPicker(event) {
             break;
         case 'random':
             playersPickedColor(this.value)
+            break;
+        case 'white':
+            drawWhite();
             break;            
         case 'black':
             color = 'black';
