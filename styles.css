@@ -8,12 +8,15 @@ header {
     box-shadow: -9px 8px #33332d;
     width: 50%;
     margin: 50px auto;
-    background-color: #ffffff;   
-
+    background-color: #ffffff;
 }
 
 h1 {
     text-shadow: 5px 5px rgb(230, 228, 228);
+}
+
+h5 {
+    line-height: 30px;
 }
 
 .content {
@@ -21,15 +24,15 @@ h1 {
     
 }
 
+/* Includes the sketchboard, button-container and pixel size slider*/
 .main-content {
-    text-align: center;
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-gap: 50px;
     justify-content: center;
 }
 
-.buttons {
+.button-container {
     background-color: #ffffff;
     display: inline-block;
     border: solid;
@@ -57,7 +60,7 @@ h1 {
     box-shadow: -3px 5px #33332d;
 }
 
-.label {
+.color-picker-label {
     text-shadow: 5px 5px rgb(246, 234, 234)
 }
 
@@ -71,8 +74,6 @@ h1 {
     box-shadow: -10px 10px #181817;
     background-color: #ffffff;
 }
-
-
 
 .slidecontainer {
     margin-top: 20px;
@@ -93,7 +94,6 @@ h1 {
     box-shadow: -9px 8px #33332d;
 }
 
-
 .slider::-webkit-slider-thumb {
     appearance: none;
     width: 25px;
@@ -112,6 +112,7 @@ h1 {
     text-shadow: 5px 5px rgb(212, 205, 205)
 }
 
+/*this class is added to the divs that are created in the sketchboard */
 .pixel {
     border-top: 1px solid rgba(70, 66, 66, 0.178);
     border-left: 1px solid rgba(70, 66, 66, 0.178);
@@ -133,7 +134,7 @@ h1 {
 }
 
 #white:hover {
-    background-color: #fcbf49;
+    background-color: #f0fc49;
     color: #000000; 
 }
 

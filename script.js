@@ -4,7 +4,7 @@ const eraseButton = document.querySelector(".eraser-button");
 const colorButtons = document.querySelectorAll(".color-button");
 const newGridButton = document.querySelector(".new-grid-button");
 
-const displaySize = document.querySelector('.range-number');
+const sliderText = document.querySelector('.range-number');
 const sizeSlider = document.querySelector(".slider");
 
 let color = '#000000';
@@ -33,7 +33,7 @@ function createGrid(pixelSize) {
 
 }
 
-
+//Color buttons functions
 function pixelColor() {
     this.style.backgroundColor = color;
 }
@@ -56,7 +56,6 @@ function drawWhite() {
     color = '#FFFFFF';
 }
 
-//For erase button
 function eraseAllColor() {
     let gridPixels = sketchBoard.querySelectorAll('div');
     gridPixels.forEach(gridPixel => gridPixel.style.backgroundColor = '#ffffff');
@@ -65,6 +64,7 @@ function eraseAllColor() {
 function playersPickedColor(val) {
     color = val;
 }
+
 
 function colorPicker(event) {
     switch(event.target.dataset.color) {
@@ -87,28 +87,25 @@ function colorPicker(event) {
 }
 
 function pixelSizeText() {
-    displaySize.textContent = sizeSlider.value + ' pixels';
+    sliderText.textContent = sizeSlider.value + ' pixels';
 
     sizeSlider.addEventListener('mousemove', function() {
         if (sizeSlider.value == gridPixelSize) {
             return;
         }
-        displaySize.textContent = sizeSlider.value + ' pixels';
+        sliderText.textContent = sizeSlider.value + ' pixels';
         gridPixelSize = sizeSlider.value;
         createGrid(gridPixelSize);
     })
     
 }
 
-
-function clearGrid() {
-    console.log("Clearing grid (" + sketchBoard.childElementCount + " elements)");
-
+//When new pixel size is chosen, old divs are removed and then new grid is drawn
+function clearGrid() {  
     while (sketchBoard.firstChild) {
         sketchBoard.removeChild(sketchBoard.lastChild);
     }
 }
-
 
 
 pixelSizeText();
